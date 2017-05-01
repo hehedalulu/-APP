@@ -174,9 +174,54 @@
 
 - (NSString *)yyyyMMddByLineWithDate{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
+    [formatter setDateFormat:@"MM dd yyyy"];
     return [formatter stringFromDate:self];
 }
+
+- (NSString *)weekdayByLineWithDate{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd yyyy"];
+    NSString *string1 = [formatter stringFromDate:self];
+
+    NSDateFormatter *formatter2 = [[NSDateFormatter alloc] init];
+    [formatter2 setDateFormat:@"MM"];
+//    formatter2.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
+    NSString *string = [formatter2 stringFromDate:self];
+    NSString *backstring = @"";
+    
+    if ([string isEqualToString:@"01"]) {
+        backstring = @"Jan.";
+    }else if([string isEqualToString:@"02"]){
+        backstring = @"Feb.";
+    }else if([string isEqualToString:@"03"]){
+        backstring = @"Mar.";
+    }else if([string isEqualToString:@"04"]){
+        backstring = @"Apr.";
+    }else if([string isEqualToString:@"05"]){
+        backstring = @"May.";
+    }else if([string isEqualToString:@"06"]){
+        backstring = @"Jun.";
+    }else if([string isEqualToString:@"07"]){
+        backstring = @"Jul.";
+    }else if([string isEqualToString:@"08"]){
+        backstring = @"Aug.";
+    }else if([string isEqualToString:@"09"]){
+        backstring = @"Sep.";
+    }else if([string isEqualToString:@"10"]){
+        backstring = @"Oct.";
+    }else if([string isEqualToString:@"11"]){
+        backstring = @"Nov.";
+    }else if([string isEqualToString:@"12"]){
+        backstring = @"Dec.";
+    }
+    
+    NSLog(@"星期几：%@，显示的%@",string,backstring);
+    
+    NSString *resultString = [backstring stringByAppendingString:string1];
+    return resultString;
+}
+
+
 
 - (NSString *)morningOrAfterWithHH{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];

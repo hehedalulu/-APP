@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SJMainViewController : UIViewController
+#import "SJCalendarView.h"
+#import "JCAlertView.h"
+#import <BmobSDK/Bmob.h>
+@interface SJMainViewController : UIViewController<SJCalendarViewDelegate>{
+    UIImageView *launchImage;
+    UIImageView *backImage;
+}
 
 @end

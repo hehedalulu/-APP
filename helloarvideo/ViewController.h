@@ -7,7 +7,9 @@
 #import <UIKit/UIKit.h>
 #import "OpenGLView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<OpenGLViewDelegate>{
+    NSString *NowMusic;
+}
 
 @property(nonatomic, strong) OpenGLView *glView;
 

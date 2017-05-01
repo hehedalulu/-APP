@@ -41,6 +41,7 @@
 - (NSString *)mmddByLineWithDate;
 - (NSString *)yyyyMMByLineWithDate;
 - (NSString *)yyyyMMddByLineWithDate;
+- (NSString *)weekdayByLineWithDate;
 - (NSString *)mmddChineseWithDate;
 - (NSString *)hhmmssWithDate;
 

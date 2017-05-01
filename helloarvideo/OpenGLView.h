@@ -9,12 +9,20 @@
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 
-@interface OpenGLView : UIView
+@protocol OpenGLViewDelegate <NSObject>
+@optional
+-(void)changeMusicType:(NSString *)MusicName;
+@end
+
+@interface OpenGLView : UIView{
+    NSString *musicString;
+}
 
 @property(nonatomic, strong) CAEAGLLayer * eaglLayer;
 @property(nonatomic, strong) EAGLContext *context;
 @property(nonatomic) GLuint colorRenderBuffer;
-
+@property (nonatomic,strong) id<OpenGLViewDelegate> OpenGLDelegate;
+@property (assign) int SJMusicType;
 - (void)start;
 - (void)stop;
 - (void)resize:(CGRect)frame orientation:(UIInterfaceOrientation)orientation;

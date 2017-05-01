@@ -31,7 +31,7 @@
         <scene sceneID="98y-XW-go0">
             <objects>
                 <navigationController id="MMA-9x-Fly" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JHz-Ce-olz">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" misplaced="YES" id="JHz-Ce-olz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -41,7 +41,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S6f-6w-4vL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1467" y="124"/>
+            <point key="canvasLocation" x="-1520" y="124"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="px5-aa-XTl">
@@ -55,23 +55,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_7967.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="bt4-eD-YiR">
-                                <rect key="frame" x="15" y="72" width="384" height="644"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dw7-eA-ShT" customClass="SJCalendarView">
+                                <rect key="frame" x="-414" y="0.0" width="414" height="746"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                            </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="58m-eh-t3e" customClass="SJCalendarView">
-                                <rect key="frame" x="-300" y="0.0" width="300" height="736"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.95362435208466068" green="1" blue="0.90651729153942529" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="hfB-kw-bmB"/>
                     <connections>
-                        <outlet property="DayShowImage" destination="bt4-eD-YiR" id="UcZ-Po-xw6"/>
-                        <outlet property="SJCalendarVIew" destination="58m-eh-t3e" id="Acn-BQ-HfP"/>
+                        <outlet property="SJCalendarVIew" destination="Dw7-eA-ShT" id="nyL-Kn-Deb"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="PushToARView" modalTransitionStyle="flipHorizontal" id="Ttu-Y3-rTj"/>
                     </connections>
                 </viewController>
@@ -80,7 +74,4 @@
             <point key="canvasLocation" x="-633.33333333333337" y="123.91304347826087"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="IMG_7967.JPG" width="424" height="800"/>
-    </resources>
 </document>

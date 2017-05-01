@@ -20,7 +20,7 @@
 *  3. find the created item in the list and show key
 *  4. set key string bellow
 */
-NSString* key = @"ZTjyIpWB32kfAUDwATZu0noFMebLGxQgIVwuYTmkntD6a9m2wgjxZ7WdVmkGZ48IA9rGa2pO3tmXUFahFxQGkp7kR5drcPUodw1Hf623ca9a3eb07478a4a938e8c156965cUAvgOzYuYq1nZOH3VOTsAdxgQ70vNk8Hn5Q8otSK9YGUTKopakM7fGm6v5h32LXqAuKJ";
+NSString* key = @"X4qIdef5JwYlbJKbmSYJlIsvEMq81RPrFgLYXQ9qIbUrqz2wradu1btrWkXVOn2dBAU8arjuCDYLrLe4z0QyXFHvtxIQQQWxQR9845168c978f908ea4efa737e0ad39e4dfWkcFH8eaBAls97Lv25eFAJnju0lG6Nje4HOCrsMEYQmbCbdZHf7jp2qBDH5XQeH0nxZf";
 
 namespace EasyAR {
 namespace samples {
@@ -34,12 +34,14 @@ public:
     virtual void resizeGL(int width, int height);
     virtual void render();
     virtual bool clear();
+    int openMusic;
+    std::string musicname;
 private:
     Vec2I view_size;
-    VideoRenderer* renderer[3];
+    VideoRenderer* renderer[50];
     int tracked_target;
     int active_target;
-    int texid[3];
+    int texid[50];
     ARVideo* video;
     VideoRenderer* video_renderer;
 };
@@ -49,7 +51,7 @@ HelloARVideo::HelloARVideo()
     view_size[0] = -1;
     tracked_target = 0;
     active_target = 0;
-    for(int i = 0; i < 3; ++i) {
+    for(int i = 0; i < 50; ++i) {
         texid[i] = 0;
         renderer[i] = new VideoRenderer;
     }
@@ -59,7 +61,7 @@ HelloARVideo::HelloARVideo()
 
 HelloARVideo::~HelloARVideo()
 {
-    for(int i = 0; i < 3; ++i) {
+    for(int i = 0; i < 50; ++i) {
         delete renderer[i];
     }
 }
@@ -67,7 +69,7 @@ HelloARVideo::~HelloARVideo()
 void HelloARVideo::initGL()
 {
     augmenter_ = Augmenter();
-    for(int i = 0; i < 3; ++i) {
+    for(int i = 0; i < 50; ++i) {
         renderer[i]->init();
         texid[i] = renderer[i]->texId();
     }
@@ -117,20 +119,211 @@ void HelloARVideo::render()
         }
         if (!tracked_target) {
             if (video == NULL) {
-                if(frame.targets()[0].target().name() == std::string("IMG_7967") && texid[0]) {
+                if(frame.targets()[0].target().name() == std::string("2017_3_14") && texid[0]) {
                     video = new ARVideo;
-                    video->openVideoFile("video.mp4", texid[0]);
+                    video->openVideoFile("liveoldStreet.mp4", texid[0]);
                     video_renderer = renderer[0];
+                    musicname = "";
                 }
-                else if(frame.targets()[0].target().name() == std::string("namecard") && texid[1]) {
-                    video = new ARVideo;
-                    video->openTransparentVideoFile("transparentvideo.mp4", texid[1]);
-                    video_renderer = renderer[1];
+                else if(frame.targets()[0].target().name() == std::string("2017_3_15") && texid[1]) {
+                    musicname = "oldstreet.mp3";
                 }
-                else if(frame.targets()[0].target().name() == std::string("idback") && texid[2]) {
+                else if(frame.targets()[0].target().name() == std::string("2017_3_16") && texid[2]) {
+
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_3_17") && texid[3]) {
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_3_18") && texid[4]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_3_19") && texid[5]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_3_20") && texid[6]) {
                     video = new ARVideo;
-                    video->openStreamingVideo("http://7xl1ve.com5.z0.glb.clouddn.com/sdkvideo/EasyARSDKShow201520.mp4", texid[2]);
-                    video_renderer = renderer[2];
+                    video->openVideoFile("haomi.mp4", texid[6]);
+                    video_renderer = renderer[6];
+                    musicname = "";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_3_21") && texid[7]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_3_22") && texid[8]) {
+                    video = new ARVideo;
+                    video->openVideoFile("jiuba.mp4", texid[8]);
+                    video_renderer = renderer[8];
+                    musicname = "";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_3_23") && texid[9]) {
+                    video = new ARVideo;
+                    video->openVideoFile("fanji.mp4", texid[9]);
+                    video_renderer = renderer[9];
+                    musicname = "";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_3_24") && texid[10]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_3_25") && texid[11]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_3_26") && texid[12]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_3_27") && texid[13]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_3_28") && texid[14]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_3_29") && texid[15]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_3_30") && texid[16]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_3_31") && texid[17]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_4_1") && texid[18]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_4_2") && texid[19]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_4_3") && texid[20]) {
+                    
+                    musicname = "DREAMCITY.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_4_23") && texid[21]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_4_24") && texid[22]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_4_25") && texid[23]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_4_26") && texid[24]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_4_27") && texid[25]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_4_28") && texid[26]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_4_29") && texid[27]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_4_30") && texid[28]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_1") && texid[29]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_2") && texid[30]) {
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_3") && texid[31]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_4") && texid[32]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_5") && texid[33]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_6") && texid[34]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_7") && texid[35]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_8") && texid[36]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_9") && texid[37]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_10") && texid[38]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_11") && texid[39]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_12") && texid[40]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_13") && texid[41]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_14") && texid[42]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_15") && texid[43]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_16") && texid[44]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_17") && texid[45]) {
+                    
+                    musicname = "liveMp3.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("2017_5_18") && texid[46]) {
+                    
+                    musicname = "oldstreet.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("A2-01") && texid[47]) {
+                    video = new ARVideo;
+                    video->openVideoFile("yaoqing.mp4", texid[47]);
+                    video_renderer = renderer[47];
+                    musicname = "";
+                }
+                else if(frame.targets()[0].target().name() == std::string("demo1") && texid[48]) {
+                    
+                    musicname = "gushilaoge.mp3";
+                }
+                else if(frame.targets()[0].target().name() == std::string("demo2") && texid[49]) {
+                    musicname = "aolifo.mp3";
                 }
             }
             if (video) {
@@ -170,8 +363,7 @@ bool HelloARVideo::clear()
 }
 EasyAR::samples::HelloARVideo ar;
 
-@interface OpenGLView ()
-{
+@interface OpenGLView (){
 }
 
 @property(nonatomic, strong) CADisplayLink * displayLink;
@@ -244,25 +436,44 @@ EasyAR::samples::HelloARVideo ar;
     ar.loadFromImage("namecard.jpg");
     ar.loadFromImage("IMG_7967.JPG");
     ar.start();
-
+    ar.openMusic = self.SJMusicType;
+    
+    
+    ar.musicname = "";
+    musicString = @"";
+    
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkCallback:)];
     [self.displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
 }
+
 
 - (void)stop
 {
     ar.clear();
 }
 
-- (void)displayLinkCallback:(CADisplayLink*)displayLink
-{
+- (void)displayLinkCallback:(CADisplayLink*)displayLink{
     if (!((AppDelegate*)[[UIApplication sharedApplication]delegate]).active)
         return;
     ar.render();
-
+    std::string str = ar.musicname;
+    NSString *temp = [NSString stringWithUTF8String:str.c_str()];
+    if ([musicString isEqualToString:@""]){
+    }
+    if (![temp isEqualToString:musicString]) {
+        NSLog(@"%@",musicString);
+        musicString = temp;
+        if ([self.OpenGLDelegate respondsToSelector:@selector(changeMusicType:)]){
+            [self.OpenGLDelegate changeMusicType:musicString];
+            NSLog(@"传送%@",musicString);
+        }
+    }
+    
     (void)displayLink;
     glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
     [_context presentRenderbuffer:GL_RENDERBUFFER];
+    
+    
 }
 
 - (void)resize:(CGRect)frame orientation:(UIInterfaceOrientation)orientation
